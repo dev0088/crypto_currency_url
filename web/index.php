@@ -22,4 +22,9 @@ $app->get('/', function() use($app) {
   return $app['twig']->render('index.twig');
 });
 
+$app->get('/crypt_url', function() use($app) {
+  $app['monolog']->addDebug('crypt_url');
+  return "<pre>".\crypt_url::say("Crypt url")."</pre>";
+});
+
 $app->run();
